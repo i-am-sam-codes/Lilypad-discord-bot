@@ -1,7 +1,7 @@
-const axios = require('axios');
-const config = require('../config');
-const { registerBotCommand } = require('../botEngine');
-const club40Gifs = require('./club_40_gifs.json');
+const axios = require("axios");
+const config = require("../config");
+const { registerBotCommand } = require("../botEngine");
+const club40Gifs = require("./club_40_gifs.json");
 
 axios.default.defaults.headers.common.Authorization = `Token ${config.pointsbot.token}`;
 
@@ -11,14 +11,22 @@ function gifPicker(gifContainer, clubChannel) {
   clubChannel.send(`Gif by ${gifContainer[choice].author}`);
 }
 
-function getUserIdsFromMessage(client, author, guild, text, regex, authorMember, channel) {
+function getUserIdsFromMessage(
+  client,
+  author,
+  guild,
+  text,
+  regex,
+  authorMember,
+  channel
+) {
   const matches = [];
   const processedIDs = [];
   let match = regex.exec(text);
 
   while (match !== null) {
-    const userID = match[1].replace('!', '');
-    if (match[2] === '?++') {
+    const userID = match[1].replace("!", "");
+    if (match[2] === "?++") {
       let isAdmin = false;
       authorMember.roles.cache.forEach((value) => {
         if (config.roles.adminRolesName.includes(value.name)) {
@@ -29,12 +37,16 @@ function getUserIdsFromMessage(client, author, guild, text, regex, authorMember,
       if (isAdmin) {
         matches.push([userID, 2]);
       } else {
-        channel.send('Only maintainers or core members can give double points!');
+        channel.send(
+          "Only maintainers or core members can give double points!"
+        );
       }
       match = regex.exec(text);
     } else {
       if (processedIDs.includes(userID)) {
-        channel.send('Only maintainers or core members can give double points!');
+        channel.send(
+          "Only maintainers or core members can give double points!"
+        );
       } else {
         processedIDs.push(userID);
         matches.push([userID, 1]);
@@ -47,7 +59,8 @@ function getUserIdsFromMessage(client, author, guild, text, regex, authorMember,
 
 const deductPoints = {
   regex: /(?<!\S)<@!?(\d+)>\s?(--)(?!\S)/,
-  cb: () => 'http://media.riffsy.com/images/636a97aa416ad674eb2b72d4a6e9ad6c/tenor.gif',
+  cb: () =>
+    "http://media.riffsy.com/images/636a97aa416ad674eb2b72d4a6e9ad6c/tenor.gif",
 };
 
 registerBotCommand(deductPoints.regex, deductPoints.cb);
@@ -55,7 +68,7 @@ registerBotCommand(deductPoints.regex, deductPoints.cb);
 async function addPointsToUser(discordId, numPoints) {
   try {
     const pointsBotResponse = await axios.post(
-      `https://www.theodinproject.com/api/points?discord_id=${discordId}&value=${numPoints}`,
+      `<LILYPAD_API>${discordId}&value=${numPoints}` // API FOR Lilypad
     );
     return pointsBotResponse.data;
   } catch (err) {
@@ -65,51 +78,51 @@ async function addPointsToUser(discordId, numPoints) {
 
 function exclamation(points, isGoodQuestion) {
   if (isGoodQuestion) {
-    return 'Thanks for the great question!';
+    return "Thanks for the great question!";
   }
   if (points < 5) {
-    return 'Nice!';
+    return "Nice!";
   }
   if (points < 25) {
-    return 'Sweet!';
+    return "Sweet!";
   }
   if (points < 99) {
-    return 'Woot!';
+    return "Woot!";
   }
   if (points < 105) {
-    return 'HOLY CRAP!!';
+    return "COOL!!";
   }
   if (points > 199 && points < 206) {
-    return 'DAM SON:';
+    return "AMAZING!";
   }
   if (points > 299 && points < 306) {
-    return 'OK YOU CAN STOP NOW:';
+    return "OKAYYY!";
   }
   if (points === 1000) {
-    return 'ONE THOUSAND POINTS';
+    return "ONE THOUSAND POINTS";
   }
   if (points === 4000) {
-    return '`//TODO: Implement Club 4000`';
+    return "`//TODO: Implement Club 4000`";
   }
-  return 'Woot!';
+  return "Woot!";
 }
 
 function plural(points) {
-  return points === 1 ? 'point' : 'points';
+  return points === 1 ? "point" : "points";
 }
 
-const userRegex = '<@!?(\\d+)>';
-const starRegex = '\u{2b50}';
+const userRegex = "<@!?(\\d+)>";
+const starRegex = "\u{2b50}";
 // matches at least two plus signs
-const plusRegex = '(\\+){2,}';
-const doublePointsPlusRegex = '\\?(\\+){2,}';
+const plusRegex = "(\\+){2,}";
+const doublePointsPlusRegex = "\\?(\\+){2,}";
 
 const awardPoints = {
   // uses a negative lookback to isolate the command
   // followed by the Discord User, a whitespace character and either the star or plus incrementer
   regex: new RegExp(
     `(?<!\\S)${userRegex}\\s?(${doublePointsPlusRegex}|${plusRegex}|${starRegex})(?!\\S)`,
-    'gu',
+    "gu"
   ),
   cb: async function pointsBotCommand({
     author,
@@ -126,10 +139,10 @@ const awardPoints = {
       content,
       new RegExp(
         `(?<!\\S)${userRegex}\\s?(${doublePointsPlusRegex}|${plusRegex}|${starRegex})(?!\\S)`,
-        'gu',
+        "gu"
       ),
       member,
-      channel,
+      channel
     );
 
     const isGoodQuestion = new RegExp(doublePointsPlusRegex).test(content);
@@ -145,16 +158,16 @@ const awardPoints = {
           return;
         }
         if (i === 4) {
-          channel.send('you can only do 5 at a time..... ');
+          channel.send("you can only do 5 at a time..... ");
         }
         const user = await client.users.cache.get(userId[0]);
         if (user === author) {
-          channel.send('http://media0.giphy.com/media/RddAJiGxTPQFa/200.gif');
+          channel.send("http://media0.giphy.com/media/RddAJiGxTPQFa/200.gif");
           channel.send("You can't do that!");
           return;
         }
         if (user === client.user) {
-          channel.send('awwwww shucks... :heart_eyes:');
+          channel.send("awwwww shucks... :heart_eyes:");
           return;
         }
         try {
@@ -163,33 +176,36 @@ const awardPoints = {
           if (user) {
             const recipientMember = await guild.members.fetch(user);
             if (
-              recipientMember
-              && !recipientMember.roles.cache.find((r) => r.name === 'club-40')
-              && pointsUser.points > 39
+              recipientMember &&
+              !recipientMember.roles.cache.find((r) => r.name === "club-40") &&
+              pointsUser.points > 39
             ) {
               const pointsRole = guild.roles.cache.find(
-                (r) => r.name === 'club-40',
+                (r) => r.name === "club-40"
               );
               recipientMember.roles.add(pointsRole);
-              const clubChannel = client.channels.cache.get(
-                '707225752608964628',
-              );
+              const clubChannel =
+                client.channels.cache.get("707225752608964628");
 
               if (clubChannel) {
-                const welcomeMessage = (previousPoints < 40) ? `HEYYY EVERYONE SAY HI TO ${user} the newest member of CLUB 40. Please check the pins at the top right!` : `WELCOME BACK TO CLUB 40 ${user}!! Please review the pins at the top right!`;
+                const welcomeMessage =
+                  previousPoints < 40
+                    ? `HEYYY EVERYONE SAY HI TO ${user} the newest member of CLUB 40. Please check the pins at the top right!`
+                    : `WELCOME BACK TO CLUB 40 ${user}!! Please review the pins at the top right!`;
                 clubChannel.send(welcomeMessage);
                 gifPicker(club40Gifs, clubChannel);
               }
             }
             channel.send(
-              `${exclamation(pointsUser.points, isGoodQuestion)} ${user} now has ${pointsUser.points
-              } ${plural(pointsUser.points)}`,
+              `${exclamation(pointsUser.points, isGoodQuestion)} ${user} now has ${
+                pointsUser.points
+              } ${plural(pointsUser.points)}`
             );
           }
         } catch (err) {
           console.log(err);
         }
-      }),
+      })
     );
   },
 };

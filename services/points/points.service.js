@@ -5,7 +5,7 @@ const config = require("../../config");
 axios.default.defaults.headers.get.Authorization = `Token ${config.pointsbot.token}`;
 
 class PointsService {
-  // static API_URL = "HERE"; //needs Lilypad API
+  // static API_URL = "<LILYPAD API>"; //needs Lilypad API
 
   static async handleInteraction(interaction) {
     if (interaction.options.getSubcommand() === "user") {
