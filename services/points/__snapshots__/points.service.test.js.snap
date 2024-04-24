@@ -11,7 +11,7 @@ exports[`leaderboard subcommand Limit defaults to 5 if invalid characters provid
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -28,7 +28,7 @@ exports[`leaderboard subcommand Limit defaults to 5 if limit not provided 1`] = 
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -45,7 +45,7 @@ exports[`leaderboard subcommand Limit defaults to 5 if limit provided lower than
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -82,7 +82,7 @@ exports[`leaderboard subcommand Limit defaults to 25 if limit provided is higher
 24 - user123 [977 points] 
 25 - user124 [976 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -99,7 +99,7 @@ exports[`leaderboard subcommand Limit does not exceed users length 1`] = `
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -116,7 +116,7 @@ exports[`leaderboard subcommand Members who left are filtered out 1`] = `
 4 - user123 [977 points] 
 5 - user124 [976 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -133,7 +133,7 @@ exports[`leaderboard subcommand Offset cannot exceed max users length 1`] = `
 49 - user148 [952 points] 
 50 - user149 [951 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -150,7 +150,7 @@ exports[`leaderboard subcommand Offset defaults to 0 if invalid characters provi
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -167,7 +167,7 @@ exports[`leaderboard subcommand Offset defaults to 0 if negative value provided 
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -184,7 +184,7 @@ exports[`leaderboard subcommand Offset defaults to 0 if not provided 1`] = `
 4 - user103 [997 points] 
 5 - user104 [996 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -201,7 +201,7 @@ exports[`leaderboard subcommand Offset show the last users depending on limit if
 49 - user148 [952 points] 
 50 - user149 [951 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -223,7 +223,7 @@ exports[`leaderboard subcommand Return the correct limit, moving offset backward
 59 - user158 [942 points] 
 60 - user159 [941 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -243,7 +243,7 @@ exports[`leaderboard subcommand Returned users length matches limit 1`] = `
 7 - user106 [994 points] 
 8 - user107 [993 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -255,7 +255,7 @@ exports[`leaderboard subcommand Returns be the first to earn points message if n
     {
       "color": 13407555,
       "description": "Be the first to earn a point!",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -272,7 +272,7 @@ exports[`leaderboard subcommand Returns users starting from offset 1`] = `
 9 - user108 [992 points] 
 10 - user109 [991 points] 
 ",
-      "title": "TOP Discord points leaderboard",
+      "title": "Lilypad Discord points leaderboard",
     },
   ],
 }
@@ -293,7 +293,7 @@ exports[`user subcommand Format the points word properly for 1 point 1`] = `
           "value": "NotOdin is ranked number 5",
         },
       ],
-      "title": "TOP Discord points for NotOdin",
+      "title": "Lilypad Discord points for NotOdin",
     },
   ],
 }
@@ -314,7 +314,7 @@ exports[`user subcommand Formats the points word correctly for more than 1 point
           "value": "Dog is ranked number 2",
         },
       ],
-      "title": "TOP Discord points for Dog",
+      "title": "Lilypad Discord points for Dog",
     },
   ],
 }
@@ -335,7 +335,7 @@ exports[`user subcommand Formats the points word properly for 0 points 1`] = `
           "value": "OldestUser currently has no rank in the leaderboard",
         },
       ],
-      "title": "TOP Discord points for OldestUser",
+      "title": "Lilypad Discord points for OldestUser",
     },
   ],
 }
@@ -356,7 +356,7 @@ exports[`user subcommand Rank append emoji to first ranked user 1`] = `
           "value": "Cat is ranked number 1 :tada:",
         },
       ],
-      "title": "TOP Discord points for Cat",
+      "title": "Lilypad Discord points for Cat",
     },
   ],
 }
@@ -377,7 +377,7 @@ exports[`user subcommand Return correct rank for user ignoring members that has 
           "value": "Dog is ranked number 2",
         },
       ],
-      "title": "TOP Discord points for Dog",
+      "title": "Lilypad Discord points for Dog",
     },
   ],
 }
@@ -398,7 +398,7 @@ exports[`user subcommand Return correct rank for user ignoring members that has 
           "value": "Someone is ranked number 3",
         },
       ],
-      "title": "TOP Discord points for Someone",
+      "title": "Lilypad Discord points for Someone",
     },
   ],
 }
@@ -419,7 +419,7 @@ exports[`user subcommand Return correct rank for user ignoring members that has 
           "value": "Tree is ranked number 4",
         },
       ],
-      "title": "TOP Discord points for Tree",
+      "title": "Lilypad Discord points for Tree",
     },
   ],
 }
@@ -440,7 +440,7 @@ exports[`user subcommand Return correct reply when user is not in database 1`] =
           "value": "OldUser currently has no rank in the leaderboard",
         },
       ],
-      "title": "TOP Discord points for OldUser",
+      "title": "Lilypad Discord points for OldUser",
     },
   ],
 }

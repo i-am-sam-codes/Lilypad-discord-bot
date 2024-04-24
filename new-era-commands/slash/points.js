@@ -1,12 +1,14 @@
-const { SlashCommandBuilder } = require('discord.js');
-const PointsService = require('../../services/points');
+const { SlashCommandBuilder } = require("discord.js");
+const PointsService = require("../../services/points");
 
 function user(command) {
-  command.setName('user')
-    .setDescription('TOP Discord points and rank for specified user')
+  command
+    .setName("user")
+    .setDescription("Lilypad Discord points and rank for specified user")
     .addUserOption((option) => {
-      option.setName('name')
-        .setDescription('The name of the user to display their points')
+      option
+        .setName("name")
+        .setDescription("The name of the user to display their points")
         .setRequired(true);
       return option;
     });
@@ -15,17 +17,20 @@ function user(command) {
 }
 
 function leaderboard(command) {
-  command.setName('leaderboard')
-    .setDescription('Displays the TOP Discord leaderboard')
+  command
+    .setName("leaderboard")
+    .setDescription("Displays the Lilypad Discord leaderboard")
     .addIntegerOption((option) => {
-      option.setName('limit')
-        .setDescription('Limit the result. Max is 25')
+      option
+        .setName("limit")
+        .setDescription("Limit the result. Max is 25")
         .setRequired(false);
       return option;
     })
     .addIntegerOption((option) => {
-      option.setName('offset')
-        .setDescription('Offset is the starting position in the leaderboard')
+      option
+        .setName("offset")
+        .setDescription("Offset is the starting position in the leaderboard")
         .setRequired(false);
       return option;
     });
@@ -34,15 +39,18 @@ function leaderboard(command) {
 }
 
 function info(command) {
-  command.setName('info')
-    .setDescription('A guide to points in the TOP Discord server');
+  command
+    .setName("info")
+    .setDescription("A guide to points in the Lilypad Discord server");
   return command;
 }
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('points')
-    .setDescription('Points provides a fun way for users to see the points ranking on the server!')
+    .setName("points")
+    .setDescription(
+      "Points provides a fun way for users to see the points ranking on the server!"
+    )
     .addSubcommand(user)
     .addSubcommand(leaderboard)
     .addSubcommand(info),
